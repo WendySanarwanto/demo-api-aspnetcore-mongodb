@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MongoDB.Driver;
 
 using com.wendysa.apidemo.Models;
+using System.Threading.Tasks;
 
 namespace com.wendysa.apidemo.Repositories.MongoDb{
     public class GamingPcRepository : IGamingPcRepository {
@@ -16,17 +17,18 @@ namespace com.wendysa.apidemo.Repositories.MongoDb{
             mongoDatabase = mongoClient.GetDatabase(databaseName);
         }
 
-        public IEnumerable<GamingPc> getAll(int limit) {
+        public async Task<IEnumerable<GamingPc>> getAllAsync(int limit)
+        {
             IEnumerable<GamingPc> result = null;
             try{
-                result = mongoDatabase.GetCollection<GamingPc>("gamingpc")
+                result = await mongoDatabase.GetCollection<GamingPc>("gamingpc")
                                       .Find(_ => true)   
                                       .Limit(limit)                                   
-                                      .ToList();
+                                      .ToListAsync();
             }
             catch(Exception exception){
                 Console.WriteLine("Error: {0} \n\rStacktrace:{1}", exception.Message, exception.StackTrace);
-            }
+            }            
             return result;
         }
     }

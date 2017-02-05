@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 using com.wendysa.apidemo.Repositories;
 
@@ -15,10 +16,10 @@ namespace demo_api_mongodb.Controllers
 
         public IGamingPcRepository GamingPcRepository { get; set; }
 
-        [HttpGet] // http://domainpath/api/v1/gamingpc Verb: GET
-        public IActionResult GetGamingPcList(){
-            var allRecords = GamingPcRepository.getAll(RECORDS_LIMIT);
+        [HttpGet] // http://domainpath/api/v1/gamingpc Verb: GET (asynchronous)
+        public async Task<IActionResult> GetGamingPcList(){
+            var allRecords = await GamingPcRepository.getAllAsync(RECORDS_LIMIT);
             return new ObjectResult(allRecords);
-        }
+        }        
     }
 }

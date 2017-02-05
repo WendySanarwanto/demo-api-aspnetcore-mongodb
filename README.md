@@ -24,4 +24,4 @@ When you run the sample, a HTTP server will run and host the program on port 500
 * Creating POST, PUT , DELETE resources. I welcome for anyone whom like to work on this parts and looking forward for your pull requests.
 
 ## What are `nice to have` features that would improve the demo becoming better
-* Supports for Asynchronous process on handling incoming GET, POST, PUT, DELETE requests on API side & the mongo driver's side , using async await & Task.
+* Supports for Asynchronous process on handling incoming POST, PUT, DELETE requests on API side & the mongo driver's side , using async await & Task.

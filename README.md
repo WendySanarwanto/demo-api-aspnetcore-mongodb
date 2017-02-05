@@ -10,7 +10,7 @@ When you run the sample, a HTTP server will run and host the program on port 500
 * MongoDB Driver for C#.
 
 ## What demo's parts that are not included in this repo
-* The demo's data. You could grab it from here: `https://github.com/WendySanarwanto/data-for-researches/blob/master/README.md` and import it into your mongodb server.
+* The demo's data. You could grab it from here: `https://github.com/WendySanarwanto/data-for-researches/` and import it into your mongodb server.
 
 ## How to run this sample
 * Ensure that you have setup .NET Core in your machine. If not, follow the instruction in here: https://www.microsoft.com/net/core#linuxubuntu

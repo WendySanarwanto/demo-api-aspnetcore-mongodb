@@ -25,3 +25,16 @@ When you run the sample, a HTTP server will run and host the program on port 500
 
 ## What are `nice to have` features that would improve the demo becoming better
 * Supports for Asynchronous process on handling incoming POST, PUT, DELETE requests on API side & the mongo driver's side , using async await & Task.
+
+## Benchmark
+I benchmarked the GET resource path using `wrk` HTTP benchmarking tool (https://github.com/wg/wrk) using this command `wrk -c 256 -t 32 -d1m http://localhost:5000/api/v1/gamingpc` ( 256 connections, 32 threads, run the test for 1 minute). Here are the results:
+* 1st run: Requests/sec: 1258.68. Served 75638 requests, where 495 requests were timed out and 30447 calls received as non-2xx or 3xx responses.
+* 2nd run: Requests/sec: 1229.81. Served 73912 requests, where 1458 requests were timed out and 31008 calls received as non-2xx or 3xx responses
+* 3rd run: Requests/sec: 1133.19. Served 68100 requests, where 437 requests were timed out and 21987 calls received as non-2xx or 3xx responses
+
+THe machine's configuration that is used for running the benchmark are listed as follow:
+* CPU: Intel i5-6600 Skylake
+* RAM: 16 GB DDR 4 (2x8 GB)
+* Motherboard: ASUS Z170-K Intel Z170 Chipset
+* OS: Linux Ubuntu 16.04.1 LTS
+* Disk: SSD 480 GB Corsair Neutron GTX
